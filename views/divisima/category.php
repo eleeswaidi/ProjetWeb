@@ -294,7 +294,10 @@ if (isset($_GET['mm']))
 							<div class="product-item">
 								<div class="pi-pic">
 
-									<img src="1.jpg" alt="">
+
+								
+
+									<img src="http:\\localhost\projet\views\images\produit\<?php  echo $k['image']; ?>" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -311,12 +314,19 @@ if (isset($_GET['mm']))
 							</div>
 						</div>
 						<?php } ?>
+
 						<div class="text-center w-100 pt-3">
 						</div>
+						<div>
+						 <a href="pdf.php" >
+                  Imprimer</a>
+               </div>
+             
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</section>
 	<!-- Category section end -->
 

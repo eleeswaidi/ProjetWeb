@@ -10,6 +10,30 @@ class Crud
         return $liste;
       
     }
+
+
+public static function checkloginC($email,$pw)
+{
+    $db = config::getConnexion(); //appel fonction static sans new
+    $req = $db->prepare('SELECT * FROM user WHERE email =:email AND mdp =:pw');
+    $req->bindParam(':email', $email);
+    $req->bindParam(':pw', $pw);
+    $req->execute();
+    $resultat=$req->fetch();
+    return $resultat;
+
+}
+
+
+  function statisticnbrtype(){
+       $sql="SELECT count(*) as nbr,type from produit group by type";
+        $db = config::getConnexion();
+        $liste=$db->query($sql);
+        return $liste;
+      
+    }
+
+
     function recetat(){
        $sql="SELECT * from stock where etat=0";
         $db = config::getConnexion();
@@ -19,20 +43,22 @@ class Crud
     }
 
 
-    public function ajoutProduit($P,$c,$k,$t)
+    public function ajoutProduit($P,$c,$k,$t,$img)
     {
+    	$ch="http:\\localhost\projet\views\images\produit";
        
         $db = config::getConnexion(); //appel fonction static sans new
-        $sql = "INSERT INTO `produit`(`prix`, `poucentagereduction`, `nomprod`, `type`) VALUES (:prix,:poucentagereduction,:nomprod,:type)";
+        $sql = "INSERT INTO `produit`(`prix`, `poucentagereduction`, `nomprod`, `type` , `image`) VALUES (:prix,:poucentagereduction,:nomprod,:type,:image)";
         $req=$db->prepare($sql);
         $req->bindValue(":prix", $k);
         $req->bindValue(":poucentagereduction", $c);
         $req->bindValue(":nomprod", $P);
         $req->bindValue(":type", $t);
+        $req->bindValue(":image", $img);
         $req->execute();
    	
-    	 		$sql2 = "UPDATE `stock` SET qte=qte+1 WHERE type=:type";
-    	 	$req2=$db->prepare($sql2);
+    	$sql2 = "UPDATE `stock` SET qte=qte+1 WHERE type=:type";
+    	$req2=$db->prepare($sql2);
         $req2->bindValue(":type", $t);
         $req2->execute();
 
@@ -75,6 +101,7 @@ class Crud
             $req->execute(); 
     }
 
+       
         function supprimerProduit($id){
         $sql="DELETE FROM produit where idprod=:idprod";
         $db=config::getConnexion();
@@ -127,6 +154,14 @@ class Crud
 }
  public function getProduit($id){
         $sql="SELECT * from produit where idprod=$id";
+        $db = config::getConnexion();
+        $liste=$db->query($sql);
+        return $liste;
+         } 
+
+
+         public function getcountnote(){
+        $sql="SELECT count(*) from stock where etat = 0";
         $db = config::getConnexion();
         $liste=$db->query($sql);
         return $liste;

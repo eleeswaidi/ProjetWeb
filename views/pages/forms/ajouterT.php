@@ -129,7 +129,7 @@ $note=$c->recetat();
                  	
                  
                   ?>
-              <a class="dropdown-item preview-item"onclick="location.href='deleterec.php?kk=<?php echo $key['idstock'];?>'">
+              <a class="dropdown-item preview-item"onclick="location.href='http://localhost/projet/views/pages/tables/deleterec.php?kk=<?php echo $key['idstock'];?>'">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-success">
                     <i class="mdi mdi-calendar"></i>

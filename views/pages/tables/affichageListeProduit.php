@@ -4,6 +4,12 @@ $crud= new Crud();
 $liste=$crud->AfficherProduit();
 $c=new Crud();
 $note=$c->recetat();
+$c2=new Crud();
+$note1=$c2->recetat();
+$nbr=0;
+foreach ($note1 as $hh) {
+	$nbr++;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,7 +128,7 @@ $note=$c->recetat();
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="mdi mdi-bell-outline"></i>
+              <i class="mdi mdi-bell-outline"><?php echo "+".$nbr ;?></i>
               <span class="count-symbol bg-danger"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
@@ -356,7 +362,7 @@ $note=$c->recetat();
                       	<?php } ?>
                     </tbody>
                   </table>
-                  <a class="btn btn-block btn-lg btn-gradient-primary mt-4" href="/projet/views/pages/forms/ajouterP.php">ajouter type</a>
+                  <a class="btn btn-block btn-lg btn-gradient-primary mt-4" href="/projet/views/pages/forms/ajouterP.php">ajouter produit</a>
                 </div>
               </div>
             </div>

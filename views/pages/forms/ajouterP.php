@@ -5,7 +5,12 @@ $c=new Crud();
 $liste=$c->Afficherstock();
 $c1=new Crud();
 $note=$c1->recetat();
-
+$c2=new Crud();
+$note1=$c2->recetat();
+$nbr=0;
+foreach ($note1 as $hh) {
+	$nbr++;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,7 +125,7 @@ $note=$c1->recetat();
             </div>
               <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="mdi mdi-bell-outline"></i>
+              <i class="mdi mdi-bell-outline"> <?php echo "+".$nbr ;?></i>
               <span class="count-symbol bg-danger"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
@@ -131,7 +136,7 @@ $note=$c1->recetat();
                  	
                  
                   ?>
-              <a class="dropdown-item preview-item"onclick="location.href='deleterec.php?kk=<?php echo $key['idstock'];?>'">
+              <a class="dropdown-item preview-item"onclick="location.href='http://localhost/projet/views/pages/tables/deleterec.php?kk=<?php echo $key['idstock'];?>'">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-success">
                     <i class="mdi mdi-calendar"></i>
@@ -310,6 +315,14 @@ $note=$c1->recetat();
                       <label for="exampleInputEmail1">Prix Produit</label>
                       <input type="number" class="form-control" id="" placeholder="Prix Produit" name='pp'>
                     </div>
+                   
+
+                    <div class="form-group">
+                    	<input type="file" id="myFile" name="myFile" class="form-control"></div>
+    
+
+
+
                     <div class="form-group">
                       <label for="exampleInputPassword1">Pourcentage Réduction</label>
                       <input type="number" class="form-control" id="" placeholder="Pourcentage Réduction" name='pr'>
