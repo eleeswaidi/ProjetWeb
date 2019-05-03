@@ -1,0 +1,27 @@
+<?php
+include "config.php"
+session_start();
+
+$sql = "select * from admin   where login = :email";
+          $db = config::getConnexion();
+          try {
+               $liste = $db->prepare($sql);
+               $liste->bindValue(':email', $_POST['email']);
+               $liste->execute();
+               return $liste;
+          } catch (Exception $e) {
+               die('Erreur: ' . $e->getMessage());
+          }
+          foreach ($liste as $row) {
+            $password = $row['password'];
+        }
+        if($password != $_POST['password'])
+        {
+        	echo"mot de passe incorrect";
+        }
+        else {
+        	$_SESSION['login'] = $_POST['email'] ;
+	header('Location: livraisonn.php');
+
+        }
+?>

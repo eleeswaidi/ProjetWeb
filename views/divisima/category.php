@@ -6,6 +6,7 @@ if (isset($_GET['mm']))
 {
 	$liste=$crud->rechercherProd($_GET['mm']);
 }
+
  ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -52,7 +53,7 @@ if (isset($_GET['mm']))
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="./index.html" class="site-logo">
+						<a href="./index.php" class="site-logo">
 							<img src="img/logo.png" alt="">
 						</a>
 					</div>
@@ -66,7 +67,19 @@ if (isset($_GET['mm']))
 						<div class="user-panel">
 							<div class="up-item">
 								<i class="flaticon-profile"></i>
-								<a href="#">Sign</a> In or <a href="#">Create Account</a>
+
+
+								
+									<a href="logout.php">logout</a> <a href="../index.php">Dashboard</a>
+								
+								
+								</div>
+							
+							
+
+
+
+								
 							</div>
 							<div class="up-item">
 								<div class="shopping-card">
@@ -84,11 +97,12 @@ if (isset($_GET['mm']))
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Women</a></li>
-					<li><a href="#">Men</a></li>
-					<li><a href="#">Jewelry
-						<span class="new">New</span>
+					<li><a href="index.php">Acceuil</a></li>
+					<li><a href="#">Catalogue</a></li>
+											<span class="new">New</span>
+
+					<li><a href="#">Promotions</a></li>
+					<li><a href="livraison.php">Livraison
 					</a></li>
 					<li><a href="#">Shoes</a>
 						<ul class="sub-menu">
@@ -99,7 +113,7 @@ if (isset($_GET['mm']))
 							<li><a href="#">Flip Flops</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Pages</a>
+					<li><a href="#">Service après vente</a>
 						<ul class="sub-menu">
 							<li><a href="./product.html">Product Page</a></li>
 							<li><a href="./category.html">Category Page</a></li>
@@ -335,7 +349,7 @@ if (isset($_GET['mm']))
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="./img/logo-light.png" alt=""></a>
+				<a href="index.php"><img src="./img/logo-light.png" alt=""></a>
 			</div>
 			<div class="row">
 				<div class="col-lg-3">

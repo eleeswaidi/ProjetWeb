@@ -12,7 +12,7 @@ class Crud
     }
 
 
-public static function checkloginC($email,$pw)
+ function checkloginC($email,$pw)
 {
     $db = config::getConnexion(); //appel fonction static sans new
     $req = $db->prepare('SELECT * FROM user WHERE email =:email AND mdp =:pw');

@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -43,7 +46,7 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="./index.html" class="site-logo">
+						<a href="./index.php" class="site-logo">
 							<img src="img/logo.png" alt="">
 						</a>
 					</div>
@@ -57,15 +60,19 @@
 						<div class="user-panel">
 							<div class="up-item">
 								<i class="flaticon-profile"></i>
-								<a href="#">Se connecter</a> ou <a href="#">Créer un compte</a>
-							</div>
-							<form method="POST" action="login.php">email
-								<input type="email" required >
-								<br>
-								pass
-								<input type="password" required >
-								<input type="submit"  >
-							</form>
+								<?php if (isset($_SESSION['role']))
+								{
+									if($_SESSION['role']==0){?>
+										<a href="logout.php">logout</a> 
+								<?php	}else{ ?>
+									<a href="logout.php">logout</a> <a href="../index.php">Dashboard</a>
+								<?php } ?>
+								<?php } else{ ?>
+								<a href="connexion.php">Se connecter</a> ou <a href="inscription.html">Créer un compte</a> ou <br> <a href="../pages/samples/login.php">admin</a>
+								</div>
+							
+							<?php }?>
+							
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
@@ -83,12 +90,11 @@
 				<!-- menu -->
 				<ul class="main-menu">
 					<li><a href="#">Acceuil</a></li>
-					<li><a href="#">Catalogue
-						<span class="new">New</span>
+					<li><a href="category.php">Catalogues
+						<!--<span class="new">New</span>-->
 					</a></li>
 					<li><a href="#">Promotions</a></li>
-					<li><a href="#">Livraison
-						
+					<li><a href="livraison.php">Livraison
 					</a></li>
 					<li><a href="#">Shoes</a>
 						<ul class="sub-menu">
@@ -444,7 +450,7 @@
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="./img/logo-light.png" alt=""></a>
+				<a href="index.php"><img src="./img/logo-light.png" alt=""></a>
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">

@@ -167,7 +167,7 @@ foreach ($note1 as $hh) {
             </div>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../../logout.php">
               <i class="mdi mdi-power"></i>
             </a>
           </li>
@@ -198,6 +198,12 @@ foreach ($note1 as $hh) {
                 <span class="text-secondary text-small">Project Manager</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/projet/views/divisima/index.php">
+              <span class="menu-title">front</span>
+              <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">

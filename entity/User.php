@@ -1,5 +1,5 @@
 <?php
-include "C:\wamp64\www\projet\config.php";
+
 class User
 {
 
@@ -58,16 +58,6 @@ public function getMdp()
     }
 
 
-  public static function checklogin($email,$mdp)
-{
-    $db = config::getConnexion(); //appel fonction static sans new
-    $req = $db->prepare('SELECT * FROM user WHERE email =:email AND mdp =:mdp');
-    $req->bindParam(':email', $email);
-    $req->bindParam(':mdp', $mdp);
-    $req->execute();
-    $resultat=$req->fetch();
-    return $resultat;
 
-}
 }
 ?>
